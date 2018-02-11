@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      layout:decorate="/layouts/main">
+<head>
+    <meta charset="UTF-8">
+    <title>Strona Główna</title>
+</head>
+<body>
+
+<section layout:fragment="content">
+    Logged user: <span sec:authentication="name">Bob</span>
+</section>
+
+Registration:
+<a th:href="@{/auth/registration}">here</a>
+Footer:
+<a th:href="@{fragments/footer}">Footer</a>
+
+
+
+
+
+
+
+
+
+
+
+<div sec:authorize="hasAuthority('ADMIN')">
+    widoczne tylko dla admina.
+</div>
+<div sec:authorize="hasAuthority('ROLE_ADMIN')">
+    widoczne tylko dla admina.
+</div>
+
+
+
+
+
+</body>
+</html>
