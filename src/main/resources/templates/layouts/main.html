@@ -8,7 +8,9 @@
 </head>
 <body>
 
-<div th:replace="fragments/nav-bars :: default-nav-bar"></div>
+<div sec:authorize="${!isAuthenticated()}" th:replace="fragments/nav-bars :: default-nav-bar"></div>
+
+<div sec:authorize="hasAuthority('ADMIN')" th:replace="fragments/nav-bars :: admin-nav-bar"></div>
 
 <section layout:fragment="content">
     <p>Page content goes here</p>
