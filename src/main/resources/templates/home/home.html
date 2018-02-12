@@ -10,6 +10,13 @@
 
 <section layout:fragment="content">
     Logged user: <span sec:authentication="name">Bob</span>
+    <div sec:authorize="hasAuthority('ADMIN')">
+        widoczne tylko dla admina.
+    </div>
+    <div sec:authorize="hasAuthority('ROLE_ADMIN')">
+        widoczne tylko dla admina.
+    </div>
+
 </section>
 
 Registration:
@@ -22,12 +29,6 @@ Footer:
 
 
 
-<div sec:authorize="hasAuthority('ADMIN')">
-    widoczne tylko dla admina.
-</div>
-<div sec:authorize="hasAuthority('ROLE_ADMIN')">
-    widoczne tylko dla admina.
-</div>
 
 
 
