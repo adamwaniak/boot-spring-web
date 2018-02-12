@@ -5,12 +5,17 @@
 <head>
     <title>Layout page</title>
     <th:block th:include="/fragments/header :: links"></th:block>
+
+
+
 </head>
 <body>
 
 <div sec:authorize="${!isAuthenticated()}" th:replace="fragments/nav-bars :: default-nav-bar"></div>
 
 <div sec:authorize="hasAuthority('ADMIN')" th:replace="fragments/nav-bars :: admin-nav-bar"></div>
+
+<div sec:authorize="hasAuthority('USER')" th:replace="fragments/nav-bars :: user-nav-bar"></div>
 
 <section layout:fragment="content">
     <p>Page content goes here</p>

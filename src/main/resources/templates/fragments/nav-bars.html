@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
 <head>
 </head>
 
@@ -46,6 +47,16 @@
         </div>
     </nav>
 
+    <!--Login modal-->
+    <!--Open modal on error-->
+    <th:block th:if="${param.loginError}">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script>
+            $(document).ready(function () {
+                $('#loginFrm').modal('show');
+            });
+        </script>
+    </th:block>
 
     <div class="modal fade" id="loginFrm" tabindex="-1" role="dialog" aria-labelledby="loginFrm" aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -58,26 +69,45 @@
                 </div>
                 <div class="modal-body">
 
-                    <form role="form" th:action="@{/auth/login}" method="post">
+                    <form role="form" th:action="@{/}" method="post">
                         <div class="form-group">
-                            <label for="inputEmail">Email</label>
-                            <input type="text" class="form-control" id="inputEmail" name="email">
-                        </div>
-                        <div class="form-group">
+                            <div class="form-group row" align="center">
+                                <label for="inputEmail"
+                                       th:class="${param.loginError} ?'col-sm-2 col-form-label text-danger' :'col-sm-2 col-form-label' ">Email</label>
+                                <div class="col-sm-7">
+                                    <input type="email"
+                                           th:class="${param.loginError} ? 'form-control is-invalid' : 'form-control'"
+                                           id="inputEmail" name="email" placeholder="">
+                                </div>
+                            </div>
+                            <div class="form-group row" align="center">
 
-                            <label for="inputPassword">Hasło</label>
-                            <input type="password" class="form-control" id="inputPassword" name="password">
-                            <a class="text-right" href="#">Zapomniałeś hasła?</a>
-                        </div>
-                        <div class="checkbox pull-left">
-                            <label>
-                                <input type="checkbox">
-                                Zapamiętaj mnie </label>
-                        </div>
-                        <div class="pull-right">
-                            <button type="submit" class="btn btn btn-primary">
-                                Zaloguj
-                            </button>
+                                <label for="inputPassword"
+                                       th:class="${param.loginError} ?'col-sm-2 col-form-label text-danger' :'col-sm-2 col-form-label' ">Hasło</label>
+                                <div class="col-sm-7">
+                                    <input type="password"
+                                           th:class="${param.loginError} ? 'form-control is-invalid' : 'form-control'"
+                                           id="inputPassword" placeholder="" name="password">
+                                </div>
+                            </div>
+
+
+                            <div class="float-left ">
+                                <span th:if="${param.loginError}" class="text-danger ">Zły adres email lub hasło</span>
+                            </div>
+                            <div th:class="${param.loginError}  ? 'text-right ' :'text-left ' ">
+                                <a href="#">Zapomniałeś hasła?</a>
+                            </div>
+                            <div class="checkbox float-left pt-4">
+                                <label>
+                                    <input type="checkbox">
+                                    Zapamiętaj mnie </label>
+                            </div>
+                            <div class="text-right pt-3">
+                                <button type="submit" class="btn btn btn-primary">
+                                    Zaloguj
+                                </button>
+                            </div>
                         </div>
                     </form>
 
@@ -99,7 +129,38 @@
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsingNavbarMd">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="navbar-collapse collapse" id="collapsingNavbarMd">
+        <div class="navbar-collapse collapse">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Collapse on MD</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="//codeply.com">Codeply</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/auth/logout}">Wyloguj</a>
+                </li>
+
+            </ul>
+
+        </div>
+    </nav>
+
+
+</th:block>
+
+<th:block th:fragment="user-nav-bar">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#" th:href="@{/home}">Navbar</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsingNavbarMd">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="navbar-collapse collapse">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
                     <a class="nav-link" href="#">Collapse on MD</a>
