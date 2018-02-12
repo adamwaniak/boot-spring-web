@@ -1,72 +1,67 @@
+
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      layout:decorate="/layouts/main">
 <head>
-    <title>Registration Form</title>
-    <link rel="stylesheet" type="text/css" th:href="@{/css/registration.css}" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <meta charset="UTF-8">
+    <title>Strona Główna</title>
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" />
+    <style>
+
+
+
+    </style>
 </head>
 <body>
-<form th:action="@{/}" method="get">
-    <button class="btn btn-md btn-warning btn-block" type="Submit">Go To Login Page</button>
-</form>
 
-<div class="container">
-    <div class="row">
-        <div class="col-md-6 col-md-offset-3">
-            <form autocomplete="off" action="#" th:action="@{/auth/registration}"
-                  th:object="${user}" method="post" class="form-horizontal"
-                  role="form">
-                <h2>Registration Form</h2>
-                <div class="form-group">
-                    <div class="col-sm-9">
-                        <label th:if="${#fields.hasErrors('name')}" th:errors="*{name}"
-                               class="validation-message"></label>
-                        <input type="text" th:field="*{name}" placeholder="Name"
-                               class="form-control" />
+<section layout:fragment="content">
+    <section class="hero">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-sm-8 mx-auto">
+                    <div class="card border-none">
+                        <div class="card-body">
+                            <div class="mt-2 text-center">
+                                <h2>Create Your Account</h2>
+                            </div>
+                            <p class="mt-4 text-white lead text-center">
+                                Sign up to get started with Authority
+                            </p>
+                            <div class="mt-4">
+                                <form>
+                                    <div class="form-group">
+                                        <input type="email" class="form-control" name="email" value="" placeholder="Enter email address">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="password" class="form-control" name="password" value="" placeholder="Enter password">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="password" class="form-control" name="confirm-password" value="" placeholder="Confirm password">
+                                    </div>
+                                    <button type="submit" class="btn btn-primary btn-block">Create Account</button>
+                                </form>
+                                <div class="clearfix"></div>
+                                <p class="content-divider center mt-4"><span>or</span></p>
+                            </div>
+                            <p class="mt-4 social-login text-center">
+                                <a href="#" class="btn btn-twitter"><em class="ion-social-twitter"></em></a>
+                                <a href="#" class="btn btn-facebook"><em class="ion-social-facebook"></em></a>
+                                <a href="#" class="btn btn-linkedin"><em class="ion-social-linkedin"></em></a>
+                                <a href="#" class="btn btn-google"><em class="ion-social-googleplus"></em></a>
+                                <a href="#" class="btn btn-github"><em class="ion-social-github"></em></a>
+                            </p>
+                            <p class="text-center">
+                                Already have an account? <a href="index.html">Login Now</a>
+                            </p>
+                        </div>
                     </div>
                 </div>
 
-                <div class="form-group">
-                    <div class="col-sm-9">
-                        <label	th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"
-                                  class="validation-message"></label>
-                        <input type="text" th:field="*{lastName}"
-                               placeholder="Last Name" class="form-control" />
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-sm-9">
-                        <input type="text" th:field="*{email}" placeholder="Email"
-                               class="form-control" /> <label
-                            th:if="${#fields.hasErrors('email')}" th:errors="*{email}"
-                            class="validation-message"></label>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-sm-9">
-                        <input type="password" th:field="*{password}"
-                               placeholder="Password" class="form-control" /> <label
-                            th:if="${#fields.hasErrors('password')}" th:errors="*{password}"
-                            class="validation-message"></label>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <div class="col-sm-9">
-                        <button type="submit" class="btn btn-primary btn-block">Register User</button>
-                    </div>
-                </div>
-
-                <span th:utext="${successMessage}"></span>
-
-
-            </form>
+            </div>
         </div>
-    </div>
-</div>
+    </section>
+</section>
 
 </body>
 </html>
