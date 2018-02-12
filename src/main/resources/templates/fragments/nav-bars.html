@@ -25,31 +25,23 @@
                     <a class="nav-link" href="//codeply.com">Codeply</a>
                 </li>
             </ul>
-            <div sec:authorize="${!isAuthenticated()}">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" th:href="@{/auth/registration}">Rejestracja</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" data-toggle="modal" data-target="#loginFrm"
-                           style="cursor: pointer">Login</a>
-                    </li>
-                </ul>
-            </div>
-            <div sec:authorize="${isAuthenticated()}">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" th:href="@{/auth/logout}">Wyloguj</a>
-                    </li>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/auth/registration}">Rejestracja</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="modal" data-target="#loginFrm"
+                       style="cursor: pointer">Login</a>
+                </li>
+            </ul>
 
-                </ul>
-            </div>
+
         </div>
     </nav>
 
     <!--Login modal-->
-    <!--Open modal on error-->
-    <th:block th:if="${param.loginError}">
+    <!--Open modal on loginError or loginShow-->
+    <th:block th:if="${param.loginError} or ${param.loginShow}">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script>
             $(document).ready(function () {
@@ -69,7 +61,7 @@
                 </div>
                 <div class="modal-body">
 
-                    <form role="form" th:action="@{/}" method="post">
+                    <form role="form" th:action="@{/auth/login}" method="post">
                         <div class="form-group">
                             <div class="form-group row" align="center">
                                 <label for="inputEmail"

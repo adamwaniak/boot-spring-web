@@ -57,7 +57,7 @@ public class SeciurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/auth/**").permitAll()
                 .antMatchers("/admin/**").hasAuthority("ADMIN").anyRequest()
                 .authenticated().and().csrf().disable().formLogin()
-                .loginPage("/").failureUrl("/?loginError=true")
+                .loginPage("/?loginShow").failureUrl("/?loginError").loginProcessingUrl("/auth/login")
                 .usernameParameter("email")
                 .passwordParameter("password")
                 .and().logout()

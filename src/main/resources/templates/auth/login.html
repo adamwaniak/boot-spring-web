@@ -3,92 +3,12 @@
       xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
 <head>
-    <title>Spring Security Tutorial</title>
-    <link rel="stylesheet" type="text/css" th:href="@{/css/login.css}"/>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <title>Login</title>
+    <
 </head>
 
 <body>
-<form th:action="@{/auth/registration}" method="get">
-    <button class="btn btn-md btn-warning btn-block" type="Submit">Go To Registration Page</button>
-</form>
 
-<div class="container">
-    <img th:src="@{/images/login.png}" class="img-responsive center-block" width="300" height="300" alt="Logo"/>
-    <form name="f" th:action="@{/auth/login}" method="POST" class="form-signin">
-        <h3 class="form-signin-heading" th:text="Welcome"></h3>
-        <br/>
-
-        <input type="text" id="email" name="email" th:placeholder="Email"
-               class="form-control"/> <br/>
-        <input type="password" th:placeholder="Password"
-               id="password" name="password" class="form-control"/> <br/>
-
-        <div align="center" th:if="${param.loginError}">
-            <p style="font-size: 20px; color: #FF1C19;">Email or Password invalid, please verify</p>
-        </div>
-        <button class="btn btn-lg btn-primary btn-block" name="Submit" value="Login" type="Submit"
-                th:text="Login"></button>
-    </form>
-</div>
-
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-toggle="modalBFDemoNewUser" data-target="#modalBFDemoNewUser">
-    Launch demo modal
-</button>
-
-<div class="modal fade right" id="modalBFDemoNewUser" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"
-     data-backdrop="false">
-    <div class="modal-dialog modal-side modal-bottom-right modal-notify modal-info" role="document">
-        <!--Content-->
-        <div class="modal-content">
-            <!--Header-->
-            <div class="modal-header">
-                <p class="heading">Welcome to MDBootstrap!</p>
-
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true" class="white-text">×</span>
-                </button>
-            </div>
-
-            <!--Body-->
-            <div class="modal-body">
-
-                <div class="row">
-                    <div class="col-3 text-center">
-                        <img src="https://mdbootstrap.com/img/Others/Modals/michal.jpg" alt="Michal Szymanski - founder of Material Design for Bootstrap"
-                             class="img-fluid z-depth-1-half rounded-circle">
-                        <div style="height: 10px"></div>
-                        <p class="title mb-0">Michal</p>
-                        <p class="text-muted " style="font-size: 13px">MDB Founder</p>
-                    </div>
-
-                    <div class="col-9">
-                        <p>
-                            <strong>Hey there!</strong>
-                        </p>
-                        <p>We're happy to see that you're getting involved.</p>
-                        <p>How about
-                            <strong>we help you in getting more</strong> out of all this awesomeness?</p>
-                    </div>
-                </div>
-
-            </div>
-
-            <!--Footer-->
-            <div class="modal-footer justify-content-center">
-                <a href="https://mdbootstrap.com/bootstrap-tutorial/" class="btn btn-primary-modal">Start tutorial
-                    <i class="fa fa-code ml-1"></i>
-                </a>
-                <a type="button" class="btn btn-outline-secondary-modal waves-effect" data-dismiss="modal">No, thanks</a>
-            </div>
-        </div>
-        <!--/.Content-->
-    </div>
-</div>
-<!--Modal: New User-->
 
 
 </body>
