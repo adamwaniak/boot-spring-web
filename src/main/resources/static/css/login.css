@@ -1,7 +1,6 @@
 
 
 
-/*Registration*/
 
 .hero{
     background-size: cover;
@@ -11,19 +10,15 @@
     width: auto;
     height: auto;
     margin: 0;
-    color: #fff;
+    /*color: #fff;*/
     position: static;
 }
-.hero:after{
-    background-color: rgba(0, 0, 0, 0.4);
-}
+
 .hero .container{
     z-index: 3;
     position: relative;
 }
-.hero .card{
-    background: rgba(0,0,0,0.7);
-}
+
 
 .modal-title{
     text-align: center;
@@ -38,10 +33,26 @@
         padding-left: 4rem;
         padding-right: 4rem;
     }
+    .social-login .btn{
+        width: 60px;
+        height: 60px;
+        margin-bottom: 5px;
+        font-size: 30px;
+
+    }
 }
 @media (max-width:576px){
     section{
         padding: 20px;
+    }
+    .social-login .btn{
+        width: 40px;
+        height: 40px;
+        margin-left: 10px;
+        margin-right: 10px;
+        margin-bottom: 5px;
+        font-size: 16px;
+
     }
 }
 
@@ -51,14 +62,14 @@
 .form-control{
     height: 45px;
     font-size: 16px;
-    background-color: rgba(255, 255, 255, 0.1);
-    border-color: rgba(255, 255, 255, 0.5);
-    color: #FFFFFF;
+    /*background-color: rgba(255, 255, 255, 0.1);*/
+    /*border-color: rgba(255, 255, 255, 0.5);*/
+    /*color: #FFFFFF;*/
 }
 .form-control:focus {
-    border-color: #FFFFFF;
+    /*border-color: #FFFFFF;*/
     background-color: transparent;
-    color: #FFFFFF;
+    /*color: #FFFFFF;*/
 }
 .border-none{
     border: none !important;
@@ -72,8 +83,8 @@
     z-index: 1;
 }
 .content-divider > span, .content-divider > a {
-    background-color: #000;
-    color: #fff;
+    background-color: #ffffff;
+    color: #000000;
     display: inline-block;
     padding: 2px 12px;
     border-radius: 3px;
@@ -86,21 +97,28 @@
     top: 50%;
     left: 0;
     height: 1px;
-    background-color: #ddd;
+    background-color: #000000;
     width: 100%;
     z-index: -1;
 }
 .social-login .btn{
     color: #fff;
-    width: 80px;
-    height: 80px;
     border-radius: 50%;
     padding: 0.6rem 0;
-    font-size: 40px;
-    margin-left: 50px;
-    margin-right: 50px;
-    margin-bottom: 10px;
+
 }
+
+
+.social-login .btn-facebook:hover{
+    background-color: rgb(43, 43, 99);
+
+}
+
+.social-login .btn-google:hover{
+    background-color: #893426;
+
+}
+
 
 .social-login .btn-facebook {
     background: #3b5998;
@@ -113,12 +131,5 @@
 
 
 
-.modal-backdrop {
-    z-index: -1;
-}
-
-.modal-content{
-    background: rgba(3, 0, 39, 0.93);
-}
 
 

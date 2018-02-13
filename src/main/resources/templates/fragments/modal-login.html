@@ -27,66 +27,64 @@
                     <div class="modal-content">
                         <div class="card border-none">
                             <div class="card-body">
-                                <div class="mt-2">
-                                </div>
-                                <div class="modal-header">
-                                    <p class="mt-4 text-white lead text-center modal-title">
-                                        Logowanie
-                                    </p>
+                                <div class="text-center">
+                                    <span class="text-center">Logowanie</span>
                                 </div>
                                 <div class="modal-body">
-                                    <div class="mt-4 ">
-                                        <form th:action="@{/auth/login}" method="post">
-                                            <div class="form-group">
-                                                <input type="email"
-                                                       th:class="${param.loginError} ? 'form-control is-invalid' : 'form-control'"
-                                                       id="email" value=""
-                                                       placeholder="Wprowadź adres email" name="email">
-                                            </div>
-                                            <div class="form-group">
-                                                <input type="password"
-                                                       th:class="${param.loginError} ? 'form-control is-invalid' : 'form-control'"
-                                                       id="password" value=""
-                                                       placeholder="Wprowadź hasło" name="password">
-                                            </div>
-                                            <div class="float-left ">
+
+                                    <form th:action="@{/auth/login}" method="post">
+                                        <div class="form-group">
+
+                                            <input type="email"
+                                                   th:class="${param.loginError} ? 'form-control is-invalid' : 'form-control'"
+                                                   id="email" value=""
+                                                   placeholder="Wprowadź adres email" name="email">
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="password"
+                                                   th:class="${param.loginError} ? 'form-control is-invalid' : 'form-control'"
+                                                   id="password" value=""
+                                                   placeholder="Wprowadź hasło" name="password">
+                                        </div>
+                                        <div class="float-left ">
                                     <span th:if="${param.loginError}"
                                           class="text-danger ">Zły adres email lub hasło</span>
-                                            </div>
-                                            <div th:class="${param.loginError}  ? 'text-right ' :'text-left ' ">
-                                                <a href="#">Zapomniałeś hasła?</a>
-                                            </div>
-                                            <div class="checkbox float-left pt-3">
-                                                <label>
-                                                    <input type="checkbox">
-                                                    Zapamiętaj mnie </label>
-                                            </div>
-                                            <div class="text-right pt-3">
-                                                <button type="submit" class="btn btn btn-primary">
-                                                    Zaloguj
-                                                </button>
-                                            </div>
-                                        </form>
+                                        </div>
+                                        <div th:class="${param.loginError}  ? 'text-right ' :'text-left ' ">
+                                            <a href="#">Zapomniałeś hasła?</a>
+                                        </div>
+                                        <div class="checkbox float-left pt-3">
+                                            <label>
+                                                <input type="checkbox">
+                                                Zapamiętaj mnie </label>
+                                        </div>
+                                        <div class="text-right pt-3">
+                                            <button type="submit" class="btn btn btn-primary">
+                                                Zaloguj
+                                            </button>
+                                        </div>
+                                    </form>
 
-                                    </div>
-                                    <div class="clearfix"></div>
-                                    <p class="content-divider center mt-4"><span>lub</span></p>
                                 </div>
-                                <p class="social-login text-center">
-
-                                    <a href="#" class="btn btn-facebook"><em class="ion-social-facebook"></em></a>
-
-                                    <a href="#" class="btn btn-google"><em class="ion-social-googleplus"></em></a>
-
-                                </p>
-
-                                    <p class="text-center">
-                                        Nie masz jeszcze konta? <a href="/auth/registration">Zarejestruj się</a>
-                                    </p>
-                                </div>
+                                <div class="clearfix"></div>
+                                <p class="content-divider center mt-4"><span>albo</span></p>
+                                <p class="text-center"><span>Zaloguj się z wybranym serwisem</span></p>
                             </div>
+                            <p class="social-login text-center">
+
+
+                                <a href="#" class="btn btn-facebook mx-2"><em class="ion-social-facebook"></em></a>
+
+                                <a href="#" class="btn btn-google mx-2"><em class="ion-social-googleplus"></em></a>
+
+                            </p>
+
+                            <p class="text-center">
+                                Nie masz jeszcze konta? <a href="/auth/registration">Zarejestruj się</a>
+                            </p>
                         </div>
                     </div>
+                </div>
             </section>
         </div>
     </div>
