@@ -16,6 +16,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.CascadeType;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import java.util.Objects;
@@ -30,19 +31,17 @@ public class User {
     @Column(name = "user_id")
     private int id;
     @Column(name = "email")
-    @Email(message = "*Please provide a valid Email")
-    @NotEmpty(message = "*Please provide an email")
+    @Email(message = "*Proszę, podaj dobry adres email")
+    @NotEmpty(message = "*Proszę, podaj email")
     private String email;
     @Column(name = "password")
-    @Size(min = 5, message = "*Your password must have at least 5 characters")
-    @NotEmpty(message = "*Please provide your password")
+    @Size(min = 5, message = "*Twoje hasło musi mieć co najmniej 5 znaków")
+    @NotEmpty(message = "*Proszę, podaj hasło")
     @Transient
     private String password;
     @Column(name = "name")
-    @NotEmpty(message = "*Please provide your name")
     private String name;
     @Column(name = "last_name")
-    @NotEmpty(message = "*Please provide your last name")
     private String lastName;
     @Column(name = "active")
     private int active;
