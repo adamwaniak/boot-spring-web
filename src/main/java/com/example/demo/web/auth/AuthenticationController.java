@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
+import org.springframework.security.web.context.HttpSessionSecurityContextRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -39,24 +40,24 @@ public class AuthenticationController {
 
 
     @RequestMapping(value = "/registration", method = RequestMethod.POST)
-    public ModelAndView createNewUser(@Valid User user, BindingResult bindingResult) {
+    public ModelAndView createNewUser(@Valid User user, BindingResult bindingResult, HttpServletRequest request) {
 
         ModelAndView modelAndView = new ModelAndView();
         User userExists = userService.findUserByEmail(user.getEmail());
         if (userExists != null) {
             bindingResult
                     .rejectValue("email", "error.user",
-                            "There is already a user registered with the email provided");
+                            "Użytkownik z podanym adresem email już istnieje");
         }
         if (bindingResult.hasErrors()) {
             modelAndView.setViewName("auth/registration");
         } else {
+
             userService.saveUser(user);
-            modelAndView.addObject("successMessage", "User has been registered successfully");
-            modelAndView.addObject("user", new User());
-            modelAndView.setViewName("auth/registration");
+            modelAndView.setViewName("redirect:/?loginShow");
 
         }
+
         return modelAndView;
     }
 
@@ -64,7 +65,6 @@ public class AuthenticationController {
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public ModelAndView showLogin(ModelAndView modelAndView) {
         modelAndView.setViewName("auth/login");
-        modelAndView.addObject("users", userService.findAllUsers());
         return modelAndView;
 
     }
