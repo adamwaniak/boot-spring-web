@@ -12,12 +12,15 @@
     margin: 0;
     /*color: #fff;*/
     position: static;
+    background-color: inherit;
 }
 
 .hero .container{
     z-index: 3;
     position: relative;
 }
+
+
 
 
 .modal-title{

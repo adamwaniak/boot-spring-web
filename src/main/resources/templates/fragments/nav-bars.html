@@ -11,38 +11,39 @@
 
     <div th:replace="~{fragments/modal-login :: modal-login}"></div>
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="#" th:href="@{/home}">Navbar</a>
+    <nav class="navbar navbar-light navbar-expand-sm mx-5">
+        <a class="navbar-brand" href="#" th:href="@{/}">Quizz</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsingNavbarMd">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="navbar-collapse collapse" id="collapsingNavbarMd">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Collapse on MD</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="//codeply.com">Codeply</a>
-                </li>
-            </ul>
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link" th:href="@{/auth/registration}">Rejestracja</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" data-toggle="modal" data-target="#loginFrm"
-                       style="cursor: pointer">Login</a>
-                </li>
-            </ul>
+            <div class="navbar-nav mr-auto">
+
+                <a class="nav-item nav-link text-info" href="/home">Home</a>
+
+
+                <a class="nav-item nav-link text-info" href="#">Stwórz test</a>
+
+
+                <a class="nav-item nav-link text-info" href="#">Wybierz test</a>
+
+            </div>
+            <div class="navbar-nav ml-auto">
+
+                <a class="nav-item nav-link font-weight-bold text-primary" th:href="@{/auth/registration}">Rejestracja</a>
+
+                <a class="nav-item nav-link font-weight-bold text-warning pointer" data-toggle="modal"
+                   data-target="#loginFrm"
+                >Login</a>
+
+            </div>
         </div>
     </nav>
 </th:block>
 
+
 <th:block th:fragment="admin-nav-bar">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark mx-5">
         <a class="navbar-brand" href="#" th:href="@{/home}">Navbar</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsingNavbarMd">
             <span class="navbar-toggler-icon"></span>
