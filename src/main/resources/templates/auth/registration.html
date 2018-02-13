@@ -31,18 +31,21 @@
                                     <div class="form-group">
 
                                         <input type="email" th:field="*{email}" placeholder="Adres email"
-                                               th:class="${#fields.hasErrors('email')} ? 'form-control is-invalid' : 'form-control'"/> <label
-                                            th:if="${#fields.hasErrors('email')}" th:errors="*{email}"
-                                            class="text-danger"></label>
+                                               th:class="${#fields.hasErrors('email')} ? 'form-control is-invalid' : 'form-control'"/>
+                                        <label
+                                                th:if="${#fields.hasErrors('email')}" th:errors="*{email}"
+                                                class="text-danger"></label>
 
                                     </div>
                                     <div class="form-group">
 
                                         <input type="password" th:field="*{password}"
-                                               placeholder="Hasło" th:class="${#fields.hasErrors('password')} ? 'form-control is-invalid' : 'form-control'"/> <label
+                                               placeholder="Hasło"
+                                               th:class="${#fields.hasErrors('password')} ? 'form-control is-invalid' : 'form-control'"/>
+                                        <label
 
-                                            th:if="${#fields.hasErrors('password')}" th:errors="*{password}"
-                                            class="text-danger"></label>
+                                                th:if="${#fields.hasErrors('password')}" th:errors="*{password}"
+                                                class="text-danger"></label>
 
                                     </div>
 
@@ -83,14 +86,26 @@
                                         <button type="submit" class="btn btn-primary btn-block">Zarejestruj się</button>
 
                                     </div>
-                                    <span th:utext="${successMessage}"></span>
-                                </form>
+
+                                    <div class="clearfix"></div>
+                                    <p class="content-divider center mt-4"><span>lub</span></p>
                             </div>
+                            <p class="social-login text-center">
+
+                                <a href="#" class="btn btn-facebook"><em class="ion-social-facebook"></em></a>
+
+                                <a href="#" class="btn btn-google"><em class="ion-social-googleplus"></em></a>
+                            <p class="text-center">Zarejestruj się z wybranym serwisem</p>
+                            </p>
                         </div>
+
+                        </form>
                     </div>
                 </div>
-
             </div>
+        </div>
+
+        </div>
         </div>
     </section>
 </section>
