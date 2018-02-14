@@ -31,4 +31,12 @@ public class UserController {
         return user;
 
     }
+
+    @RequestMapping(value = {"/","/profile"},method = RequestMethod.POST)
+    @ResponseBody
+    public User updateProfile(ModelAndView modelAndView, Principal principal){
+        //TODO
+        return null;
+
+    }
 }
