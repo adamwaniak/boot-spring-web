@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      layout:decorate="/layouts/main">
+<head>
+    <meta charset="UTF-8">
+    <title>Twój Profil</title>
+</head>
+<body>
+
+<section layout:fragment="content">
+    <div class="container">
+        USER PROFILE
+        <div th:text="${principalName}"></div>
+        <div th:text="${user.getName()}"></div>
+    </div>
+
+</section>
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
+
+
+
+
+

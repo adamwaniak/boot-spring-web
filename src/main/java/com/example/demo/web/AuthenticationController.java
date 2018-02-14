@@ -1,4 +1,4 @@
-package com.example.demo.web.auth;
+package com.example.demo.web;
 
 
 import com.example.demo.model.User;

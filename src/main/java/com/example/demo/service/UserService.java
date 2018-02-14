@@ -48,7 +48,7 @@ public class UserService {
         if (user.getLastName() == null) {
             user.setName("");
         }
-        Role userRole = roleRepository.findByRole("ADMIN");
+        Role userRole = roleRepository.findByRole("USER");
         user.setRoles(new HashSet<Role>(Arrays.asList(userRole)));
         userRepository.save(user);
     }
